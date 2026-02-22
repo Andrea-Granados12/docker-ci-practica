@@ -1,4 +1,7 @@
-from app import multiplicar
+from app import app
 
-def test_multiplicar():
-    assert multiplicar(4, 5) == 20
+def test_inicio():
+    client = app.test_client()
+    resp = client.get("/")
+    assert resp.status_code == 200
+    assert "funcionando" in resp.get_data(as_text=True).lower()

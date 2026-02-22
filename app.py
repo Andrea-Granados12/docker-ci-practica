@@ -1,7 +1,10 @@
-# trigger workflow practica
+from flask import Flask
 
-def multiplicar(a, b):
-    return a * b
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return "Aplicación Docker CI Practica funcionando correctamente "
 
 if __name__ == "__main__":
-    print(f"Resultado multiplicar(4,5): {multiplicar(4,5)}")
+    app.run(host="0.0.0.0", port=3000)
